@@ -15,4 +15,9 @@ describe 'A freezer' do
         freezer = Freezer.new
         expect(freezer.power).to eq(:off)
     end
+
+    it 'initially is empty' do
+        freezer = Freezer.new
+        expect(freezer.contents).to eq([])
+    end
 end
