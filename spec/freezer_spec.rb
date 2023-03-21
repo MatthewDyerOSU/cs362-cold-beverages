@@ -10,4 +10,9 @@ describe 'A freezer' do
         freezer = Freezer.new
         expect(freezer.temperature).to eq(Freezer::ROOM_TEMPERATURE)
     end
+
+    it 'initially is off' do
+        freezer = Freezer.new
+        expect(freezer.power).to eq(:off)
+    end
 end
