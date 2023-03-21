@@ -79,4 +79,17 @@ describe 'A refrigerator' do
         expect(chiller.power).to eq(:on)
         expect(freezer.power).to eq(:on)
     end
+
+    it 'can be unplugged' do
+        chiller = Chiller.new
+        freezer = Freezer.new
+        reservoir = WaterReservoir.new
+        dispenser = WaterDispenser.new(reservoir)
+        fridge = Refrigerator.new(chiller, freezer, dispenser, reservoir)
+        fridge.plug_in
+        fridge.unplug
+        expect(fridge.power).to eq(:off)
+        expect(chiller.power).to eq(:off)
+        expect(freezer.power).to eq(:off)
+    end
 end
