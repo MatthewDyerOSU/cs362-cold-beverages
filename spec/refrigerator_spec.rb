@@ -17,4 +17,13 @@ describe 'A refrigerator' do
         expect(fridge.water_dispenser).to eq(dispenser)
         expect(fridge.water_reservoir).to eq(reservoir)
     end
+
+    it 'is initially off' do
+        chiller = Chiller.new
+        freezer = Freezer.new
+        reservoir = WaterReservoir.new
+        dispenser = WaterDispenser.new(reservoir)
+        fridge = Refrigerator.new(chiller, freezer, dispenser, reservoir)
+        expect(fridge.power).to eq(:off)
+    end
 end
