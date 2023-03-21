@@ -5,4 +5,9 @@ describe 'A freezer' do
         freezer = Freezer.new
         expect(freezer.capacity).to eq(100)
     end
+
+    it 'initially is room temperature' do
+        freezer = Freezer.new
+        expect(freezer.temperature).to eq(Freezer::ROOM_TEMPERATURE)
+    end
 end
