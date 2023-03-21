@@ -49,4 +49,13 @@ describe 'A refrigerator' do
         fridge.freeze(item)
         expect(freezer.contents).to eq([item])
     end
+
+    it 'has total capacity equal to capacity of chiller + freezer' do
+        chiller = Chiller.new
+        freezer = Freezer.new
+        reservoir = WaterReservoir.new
+        dispenser = WaterDispenser.new(reservoir)
+        fridge = Refrigerator.new(chiller, freezer, dispenser, reservoir)
+        expect(fridge.total_capacity).to eq(200)
+    end
 end
