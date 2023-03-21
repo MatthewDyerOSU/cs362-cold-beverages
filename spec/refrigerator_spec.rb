@@ -112,4 +112,30 @@ describe 'A refrigerator' do
         fridge.set_freezer_level(3)
         expect(freezer.temperature).to eq(40)
     end
+
+    it 'can to_s' do
+        chiller = Chiller.new
+        freezer = Freezer.new
+        reservoir = WaterReservoir.new
+        dispenser = WaterDispenser.new(reservoir)
+        fridge = Refrigerator.new(chiller, freezer, dispenser, reservoir)
+        fridge.to_s
+    end
+
+    it 'returns a string representation of its status' do
+        chiller = Chiller.new
+        freezer = Freezer.new
+        reservoir = WaterReservoir.new
+        dispenser = WaterDispenser.new(reservoir)
+        fridge = Refrigerator.new(chiller, freezer, dispenser, reservoir)
+        expected_output = <<~STATUS
+          Power: off
+          Storage: 200 of 200 available
+          Temps: Chiller is 70, Freezer is 70
+          Water: Reservoir has 0 remaining.
+        STATUS
+    
+        expect(fridge.to_s).to eq(expected_output)
+      end
+
 end
