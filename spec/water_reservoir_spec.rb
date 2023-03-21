@@ -21,5 +21,11 @@ describe 'A water reservoir' do
         expect(reservoir.current_water_volume).to eq(50)
     end
 
+    it 'is no longer empty when we fill it' do
+        reservoir = WaterReservoir.new
+        reservoir.fill
+        expect(reservoir).to_not be_empty
+    end
+
 
 end
