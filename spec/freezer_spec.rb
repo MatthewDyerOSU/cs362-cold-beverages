@@ -26,4 +26,11 @@ describe 'A freezer' do
         freezer.turn_on
         expect(freezer.power).to eq(:on)
     end
+
+    it 'can be turned off' do
+        freezer = Freezer.new
+        freezer.turn_on
+        freezer.turn_off
+        expect(freezer.power).to eq(:off)
+    end
 end
