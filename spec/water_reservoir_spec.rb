@@ -10,4 +10,9 @@ describe 'A water reservoir' do
         reservoir = WaterReservoir.new
         expect(reservoir.current_water_volume).to eq(0)
     end
+
+    it 'has capacity set by user' do
+        reservoir = WaterReservoir.new(100, 0)
+        expect(reservoir.capacity).to eq(100)
+    end
 end
