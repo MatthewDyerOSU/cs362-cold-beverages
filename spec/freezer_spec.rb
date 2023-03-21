@@ -41,4 +41,11 @@ describe 'A freezer' do
         freezer.add(item)
         expect(freezer.contents).to eq([item])
     end
+
+    it 'correctly reduces capacity by item volume when item is added' do
+        item = Item.new('Food', 10)
+        freezer = Freezer.new
+        freezer.add(item)
+        expect(freezer.remaining_capacity).to eq(90)
+    end
 end
