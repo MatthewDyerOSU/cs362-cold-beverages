@@ -32,6 +32,4 @@ describe 'A water reservoir' do
         reservoir.drain(50)
         expect(reservoir.current_water_volume).to eq(50)
     end
-
-
 end
