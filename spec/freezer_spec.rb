@@ -1,4 +1,5 @@
 require_relative '../lib/freezer'
+require_relative '../lib/item'
 
 describe 'A freezer' do
     it 'has a default capacity of 100' do
@@ -32,5 +33,12 @@ describe 'A freezer' do
         freezer.turn_on
         freezer.turn_off
         expect(freezer.power).to eq(:off)
+    end
+
+    it 'can add item' do
+        item = Item.new('Food', 10)
+        freezer = Freezer.new
+        freezer.add(item)
+        expect(freezer.contents).to eq([item])
     end
 end
