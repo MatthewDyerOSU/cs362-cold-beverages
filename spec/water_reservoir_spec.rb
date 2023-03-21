@@ -8,7 +8,7 @@ describe 'A water reservoir' do
 
     it 'is initially empty' do
         reservoir = WaterReservoir.new
-        expect(reservoir.current_water_volume).to eq(0)
+        expect(reservoir).to be_empty
     end
 
     it 'has capacity set by user' do
@@ -20,4 +20,6 @@ describe 'A water reservoir' do
         reservoir = WaterReservoir.new(100, 50)
         expect(reservoir.current_water_volume).to eq(50)
     end
+
+
 end
