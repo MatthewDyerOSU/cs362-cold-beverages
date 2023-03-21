@@ -3,6 +3,7 @@ require_relative '../lib/chiller'
 require_relative '../lib/freezer'
 require_relative '../lib/water_dispenser'
 require_relative '../lib/water_reservoir'
+require_relative '../lib/item'
 
 
 describe 'A refrigerator' do
@@ -25,5 +26,16 @@ describe 'A refrigerator' do
         dispenser = WaterDispenser.new(reservoir)
         fridge = Refrigerator.new(chiller, freezer, dispenser, reservoir)
         expect(fridge.power).to eq(:off)
+    end
+
+    it 'can chill an item' do
+        chiller = Chiller.new
+        freezer = Freezer.new
+        reservoir = WaterReservoir.new
+        dispenser = WaterDispenser.new(reservoir)
+        fridge = Refrigerator.new(chiller, freezer, dispenser, reservoir)
+        item = Item.new('Food', 10)
+        fridge.chill(item)
+        expect(chiller.contents).to eq([item])
     end
 end
