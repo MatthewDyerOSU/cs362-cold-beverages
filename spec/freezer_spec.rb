@@ -20,4 +20,10 @@ describe 'A freezer' do
         freezer = Freezer.new
         expect(freezer.contents).to eq([])
     end
+
+    it 'can be turned on' do
+        freezer = Freezer.new
+        freezer.turn_on
+        expect(freezer.power).to eq(:on)
+    end
 end
